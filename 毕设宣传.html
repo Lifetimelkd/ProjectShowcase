@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算机毕业设计定制开发 - 专业可靠</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d2d3, #533483);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #00d2d3;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card h3::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #00d2d3, transparent);
+            margin-left: 10px;
+        }
+
+        .service-highlight {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+            transform: scale(1.02);
+            z-index: 1;
+        }
+
+        .service-highlight h3 {
+            color: #ff6b6b;
+        }
+
+        .service-highlight::after {
+            content: '热门推荐';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-table th {
+            background: rgba(0, 210, 211, 0.1);
+            font-weight: 600;
+            color: #00d2d3;
+        }
+
+        .price-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .price-highlight {
+            background: rgba(255, 107, 107, 0.2) !important;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .feature-tag {
+            background: rgba(0, 210, 211, 0.1);
+            color: #00d2d3;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(0, 210, 211, 0.2);
+        }
+
+        .feature-highlight {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin-top: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4);
+            color: white;
+        }
+
+        .guarantee {
+            background: rgba(0, 210, 211, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #00d2d3;
+        }
+
+        .guarantee h4 {
+            color: #00d2d3;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid-highlight {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card {
+                margin: 10px 0;
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 210, 211, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100vw);
+                opacity: 0;
+            }
+        }
+
+        .floating-element:nth-child(1) {
+            left: 10%;
+            animation-duration: 20s;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            left: 20%;
+            animation-duration: 25s;
+            animation-delay: 5s;
+        }
+
+        .floating-element:nth-child(3) {
+            left: 30%;
+            animation-duration: 15s;
+            animation-delay: 10s;
+        }
+
+        .floating-element:nth-child(4) {
+            left: 40%;
+            animation-duration: 30s;
+            animation-delay: 15s;
+        }
+
+        .floating-element:nth-child(5) {
+            left: 50%;
+            animation-duration: 20s;
+            animation-delay: 20s;
+        }
+
+        .floating-element:nth-child(6) {
+            left: 60%;
+            animation-duration: 35s;
+            animation-delay: 25s;
+        }
+
+        .floating-element:nth-child(7) {
+            left: 70%;
+            animation-duration: 18s;
+            animation-delay: 30s;
+        }
+
+        .floating-element:nth-child(8) {
+            left: 80%;
+            animation-duration: 22s;
+            animation-delay: 35s;
+        }
+
+        .floating-element:nth-child(9) {
+            left: 90%;
+            animation-duration: 28s;
+            animation-delay: 40s;
+        }
+
+        .floating-element:nth-child(10) {
+            left: 25%;
+            animation-duration: 16s;
+            animation-delay: 45s;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>计算机毕业设计定制开发</h1>
+            <p>专业团队 | 可靠保障 | 科技创新 | 论文指导</p>
+        </div>
+
+        <!-- 热门推荐卡片 - 单独一行 -->
+        <div class="services-grid-highlight">
+            <!-- 定制开发 - 突出显示 -->
+            <div class="service-card service-highlight">
+                <h3>定制开发</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>项目内容</th>
+                            <th>单价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>项目需求分析与设计</td>
+                            <td class="price">800元</td>
+                        </tr>
+                        <tr class="price-highlight">
+                            <td>特殊功能开发</td>
+                            <td class="price">300元/功能</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="features">
+                    <span class="feature-tag feature-highlight">需求分析</span>
+                    <span class="feature-tag feature-highlight">定制开发</span>
+                    <span class="feature-tag feature-highlight">特殊功能</span>
+                    <span class="feature-tag feature-highlight">一对一服务</span>
+                </div>
+            </div>
+
+            <!-- 项目总包 - 突出显示 -->
+            <div class="service-card service-highlight">
+                <h3>项目总包</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>项目内容</th>
+                            <th>单价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="price-highlight">
+                            <td>项目+论文开发（总价）</td>
+                            <td class="price">2000元</td>
+                        </tr>
+                        <tr>
+                            <td>单项目开发（不含论文）</td>
+                            <td class="price">1800元</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="features">
+                    <span class="feature-tag feature-highlight">全套开发</span>
+                    <span class="feature-tag feature-highlight">论文指导</span>
+                    <span class="feature-tag feature-highlight">技术支持</span>
+                    <span class="feature-tag feature-highlight">售后服务</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他服务卡片 - 下方一行 -->
+        <div class="services-grid">
+            <!-- 网页开发 -->
+            <div class="service-card">
+                <h3>网页开发</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>项目内容</th>
+                            <th>单价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>基础网页开发</td>
+                            <td class="price">1600元</td>
+                        </tr>
+                        <tr>
+                            <td>响应式设计</td>
+                            <td class="price">200元</td>
+                        </tr>
+                        <tr>
+                            <td>数据库整合</td>
+                            <td class="price">300元</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="features">
+                    <span class="feature-tag">前端设计</span>
+                    <span class="feature-tag">后台开发</span>
+                    <span class="feature-tag">响应式</span>
+                    <span class="feature-tag">数据库集成</span>
+                </div>
+            </div>
+
+            <!-- 小程序开发 -->
+            <div class="service-card">
+                <h3>小程序开发</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>项目内容</th>
+                            <th>单价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>小程序前端开发</td>
+                            <td class="price">700元</td>
+                        </tr>
+                        <tr>
+                            <td>后端开发</td>
+                            <td class="price">800元</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="features">
+                    <span class="feature-tag">UI设计</span>
+                    <span class="feature-tag">功能开发</span>
+                    <span class="feature-tag">API接口</span>
+                    <span class="feature-tag">数据库</span>
+                </div>
+            </div>
+
+            <!-- 其他服务 -->
+            <div class="service-card">
+                <h3>其他服务</h3>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>项目内容</th>
+                            <th>单价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bug修复</td>
+                            <td class="price">100元/bug</td>
+                        </tr>
+                        <tr>
+                            <td>功能新增</td>
+                            <td class="price">150元/功能</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="features">
+                    <span class="feature-tag">Bug修复</span>
+                    <span class="feature-tag">功能新增</span>
+                    <span class="feature-tag">技术支持</span>
+                    <span class="feature-tag">后期维护</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="guarantee">
+            <h4>服务保障</h4>
+            <p>✓ 专业团队开发 | ✓ 论文指导 | ✓ 技术支持 | ✓ 售后服务 | ✓ 按时交付</p>
+        </div>
+
+        <div class="contact-section">
+            <h2>立即联系，开启您的毕业设计之旅！</h2>
+            <p>我们提供专业的毕业设计开发服务，确保您的项目顺利完成</p>
+
+            <div class="contact-cards">
+                <!-- 微信名片 -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" fill="#2DC100" stroke="white" stroke-width="2"/>
+                            <path d="M8 12H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 8V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>微信联系</h3>
+                    <div class="contact-info">
+                        <span class="contact-label">微信号：</span>
+                        <span class="contact-value highlight">kdqr20220612</span>
+                    </div>
+                    <div class="contact-features">
+                        <span class="feature-tag">即时沟通</span>
+                        <span class="feature-tag">快速响应</span>
+                        <span class="feature-tag">技术支持</span>
+                    </div>
+                </div>
+
+                <!-- 闲鱼名片 -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="4" width="16" height="16" rx="3" fill="#FF6B35" stroke="white" stroke-width="2"/>
+                            <path d="M8 12H16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 8V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>闲鱼联系</h3>
+                    <div class="contact-info">
+                        <span class="contact-label">闲鱼号：</span>
+                        <span class="contact-value highlight">全栈笙歌</span>
+                    </div>
+                    <div class="contact-features">
+                        <span class="feature-tag">平台保障</span>
+                        <span class="feature-tag">交易安全</span>
+                        <span class="feature-tag">多元服务</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
