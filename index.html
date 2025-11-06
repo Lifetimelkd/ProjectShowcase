@@ -366,6 +366,218 @@
             animation-duration: 16s;
             animation-delay: 45s;
         }
+
+        .tech-stack-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-stack-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .tech-stack-table th,
+        .tech-stack-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            vertical-align: middle;
+        }
+
+        .tech-stack-table th {
+            background: rgba(0, 210, 211, 0.2);
+            font-weight: 600;
+            color: #00d2d3;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .tech-stack-table tbody tr {
+            background: rgba(139, 195, 74, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .tech-stack-table tbody tr:hover {
+            background: rgba(139, 195, 74, 0.25);
+            transform: scale(1.01);
+        }
+
+        .tech-stack-table tbody tr.tech-highlight {
+            background: rgba(139, 195, 74, 0.25);
+        }
+
+        .tech-stack-table tbody tr.tech-special {
+            background: rgba(255, 193, 7, 0.15);
+        }
+
+        .tech-stack-table tbody tr.tech-special:hover {
+            background: rgba(255, 193, 7, 0.25);
+        }
+
+        .tech-stack-table td:first-child {
+            font-weight: 600;
+            color: #00d2d3;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .tech-stack-table td:nth-child(4) {
+            text-align: center;
+            font-weight: bold;
+            min-width: 100px;
+        }
+
+        .special-notes,
+        .final-note {
+            background: rgba(0, 210, 211, 0.1);
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #00d2d3;
+        }
+
+        .final-note {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            text-align: center;
+        }
+
+        .special-notes h4,
+        .final-note h4 {
+            color: #00d2d3;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .final-note h4 {
+            color: #ff6b6b;
+        }
+
+        .special-notes ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .special-notes li {
+            margin: 10px 0;
+            color: #e0e0e0;
+        }
+
+        .final-note p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .tech-stack-section {
+                padding: 20px;
+            }
+
+            .tech-stack-table {
+                font-size: 0.85em;
+            }
+
+            .tech-stack-table th,
+            .tech-stack-table td {
+                padding: 10px 8px;
+            }
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: #00d2d3;
+        }
+
+        .contact-section > p {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 40px;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 210, 211, 0.5);
+        }
+
+        .contact-icon {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5em;
+            color: #00d2d3;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .contact-label {
+            color: #a0a0a0;
+            font-size: 0.9em;
+        }
+
+        .contact-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .contact-value.highlight {
+            color: #ff6b6b;
+        }
+
+        .contact-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -540,6 +752,109 @@
                     <span class="feature-tag">技术支持</span>
                     <span class="feature-tag">后期维护</span>
                 </div>
+            </div>
+        </div>
+
+        <!-- 技术栈价格表 -->
+        <div class="tech-stack-section">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #00d2d3;">技术栈支持列表</h2>
+            <div style="overflow-x: auto;">
+                <table class="tech-stack-table">
+                    <thead>
+                        <tr>
+                            <th>开发语言</th>
+                            <th>支持框架</th>
+                            <th>开发工具</th>
+                            <th>源码价格</th>
+                            <th>设计文档</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tech-highlight">
+                            <td>Java</td>
+                            <td>Jsp、SSM、SpringBoot2、SpringBoot3、SpringCloud、支持前后端分离高，前端建议用Vue</td>
+                            <td>IDEA、VsCode...</td>
+                            <td class="price">¥1500</td>
+                            <td>
+                                所有套餐均包含开题、任务书套餐一后面可升级为套餐二<br>
+                                <strong style="color: #ff6b6b;">套餐一（推荐）：¥300</strong><br>
+                                (1.5万字左右、任务书、功能设计说明、系统结构图、ER图、流程图、测试说明、功能截图等，<span style="color: #ff6b6b;">支持根据用户提供模版格式编写后续修改降价后仅收费100元石，一次100元石)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>小程序</td>
+                            <td>微信小程序原生/Uniapp</td>
+                            <td>微信开发者工具、Hbuilder...</td>
+                            <td class="price">¥1500</td>
+                            <td rowspan="2">
+                                <strong>套餐二：¥800</strong><br>
+                                (初稿+无限次修改·支持两次更换检测价格+标格式修改·问题、代码问题翻译·ER图、流程图、测试说明、功能截图等)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>公众号</td>
+                            <td>Uniapp</td>
+                            <td>微信开发者工具</td>
+                            <td class="price">¥1500</td>
+                        </tr>
+                        <tr>
+                            <td>Android</td>
+                            <td>安卓原生/Uniapp</td>
+                            <td>AndroidStudio、Hbuilder...</td>
+                            <td class="price">¥1500</td>
+                            <td rowspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td>Python</td>
+                            <td>Django</td>
+                            <td>Pycharm...</td>
+                            <td class="price">¥1500</td>
+                        </tr>
+                        <tr>
+                            <td>Node.js</td>
+                            <td>express</td>
+                            <td>VsCode、Hbuilder...</td>
+                            <td class="price">¥1500</td>
+                        </tr>
+                        <tr>
+                            <td>PHP</td>
+                            <td>Php、ThinkPhp5</td>
+                            <td>VsCode</td>
+                            <td class="price">¥1500</td>
+                            <td rowspan="3" style="vertical-align: top; padding-top: 20px;">
+                                <strong>后续语言支持Python/Java</strong>
+                            </td>
+                        </tr>
+                        <tr class="tech-special">
+                            <td>大数据</td>
+                            <td>可视化大屏、Hadoop、Hive、Spark、Scapy(爬虫)</td>
+                            <td></td>
+                            <td class="price">¥1500</td>
+                        </tr>
+                        <tr class="tech-special">
+                            <td>机器学习</td>
+                            <td>LSTM、决策树、线性回归、随机森林分布、随机森林回归</td>
+                            <td></td>
+                            <td class="price">¥1500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 特别说明 -->
+            <div class="special-notes">
+                <h4>特别说明：</h4>
+                <ol>
+                    <li>开发完成后，<strong style="color: #ff6b6b;">后续可以提供修改</strong>，免费添加2~3个功能，<strong style="color: #ff6b6b;">功能需要在合理范围内。</strong></li>
+                    <li>后续项目都是包售后的，出问题后也是会免费帮忙处理，包括后续、问题、代码问题都会帮大家答疑。</li>
+                    <li>源码和文档均可以分开购买（比如完先买源码，后续如果需要文档再购买文档），<strong style="color: #ff6b6b;">定金一半，尾款在交付时候付</strong>。</li>
+                </ol>
+            </div>
+
+            <!-- 最后想说的是 -->
+            <div class="final-note">
+                <h4 style="color: #ff6b6b;">最后想说的是：</h4>
+                <p>我们开发团队不会给你虚报价格的价格，但是一定是合理的，谢谢大家的支持！</p>
             </div>
         </div>
 
