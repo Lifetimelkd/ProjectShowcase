@@ -578,6 +578,332 @@
             justify-content: center;
             margin-top: 20px;
         }
+
+        .highlight-intro {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 210, 211, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 210, 211, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-intro::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 210, 211, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .highlight-intro h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #00d2d3, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-item {
+            background: rgba(0, 210, 211, 0.1);
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 210, 211, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .service-item:hover {
+            background: rgba(0, 210, 211, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 210, 211, 0.3);
+        }
+
+        .advantage-box {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(0, 210, 211, 0.15));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #ff6b6b;
+            position: relative;
+            z-index: 1;
+        }
+
+        .advantage-box p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin: 8px 0;
+        }
+
+        .advantage-box strong {
+            color: #00d2d3;
+            font-weight: 600;
+        }
+
+        .contact-prompt {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            margin-top: 25px;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-prompt p {
+            font-size: 1.2em;
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .highlight-intro {
+                padding: 25px 20px;
+            }
+
+            .highlight-intro h2 {
+                font-size: 1.8em;
+            }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 查看成品按钮样式 */
+        .view-products-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #00d2d3, #533483);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 210, 211, 0.3);
+        }
+
+        .view-products-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 210, 211, 0.4);
+        }
+
+        /* 模态框样式 */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .product-modal.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-radius: 20px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 210, 211, 0.3);
+        }
+
+        .modal-header h2 {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #00d2d3, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .close-btn {
+            background: rgba(255, 107, 107, 0.2);
+            border: none;
+            color: #ff6b6b;
+            font-size: 2em;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 107, 107, 0.4);
+            transform: rotate(90deg);
+        }
+
+        /* 分类选项卡 */
+        .category-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 210, 211, 0.3);
+            border-radius: 10px;
+            color: #00d2d3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .category-tab:hover {
+            background: rgba(0, 210, 211, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .category-tab.active {
+            background: linear-gradient(45deg, #00d2d3, #533483);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(0, 210, 211, 0.3);
+        }
+
+        /* 项目列表 */
+        .project-list {
+            display: none;
+        }
+
+        .project-list.active {
+            display: block;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 210, 211, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 210, 211, 0.2);
+        }
+
+        .project-item h4 {
+            color: #00d2d3;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-item h4::before {
+            content: '📦';
+            font-size: 1.2em;
+        }
+
+        .project-item p {
+            color: #a0a0a0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .modal-header h2 {
+                font-size: 1.8em;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tabs {
+                gap: 10px;
+            }
+
+            .category-tab {
+                padding: 10px 15px;
+                font-size: 0.95em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -598,6 +924,33 @@
         <div class="header">
             <h1>计算机毕业设计定制开发</h1>
             <p>专业团队 | 可靠保障 | 科技创新 | 论文指导</p>
+        </div>
+
+        <!-- 服务亮点介绍 -->
+        <div class="highlight-intro">
+            <h2>专业服务 · 品质保障</h2>
+            
+            <div class="services-list">
+                <div class="service-item">🎓 实习盖章</div>
+                <div class="service-item">💻 计算机毕设/课设</div>
+                <div class="service-item">📝 论文撰写</div>
+                <div class="service-item">📊 PPT制作</div>
+                <div class="service-item">📱 小程序开发</div>
+                <div class="service-item">🌐 网站制作</div>
+            </div>
+
+            <div class="advantage-box">
+                <p>✨ <strong>非中间商赚差价</strong> - 直接对接开发团队，省去中间环节</p>
+                <p>👨‍💻 <strong>十年程序员专业团队</strong> - 经验丰富，技术过硬</p>
+                <p>📋 <strong>代码规范</strong> - 严格遵循编码标准，代码质量有保障</p>
+                <p>⚡ <strong>高效交付</strong> - 按时按质完成，绝不拖延</p>
+                <p>🛡️ <strong>售后保障</strong> - 完善的售后服务体系，后顾无忧</p>
+                <p>💰 <strong>价格美丽</strong> - 合理定价，性价比超高</p>
+            </div>
+
+            <div class="contact-prompt">
+                <p>💬 加微信谈需求，价格合理，诚信经营！</p>
+            </div>
         </div>
 
         <!-- 热门推荐卡片 - 单独一行 -->
@@ -633,7 +986,7 @@
 
             <!-- 项目总包 - 突出显示 -->
             <div class="service-card service-highlight">
-                <h3>项目总包</h3>
+                <h3>毕设成品特惠</h3>
                 <table class="price-table">
                     <thead>
                         <tr>
@@ -643,21 +996,19 @@
                     </thead>
                     <tbody>
                         <tr class="price-highlight">
-                            <td>项目+论文开发（总价）</td>
-                            <td class="price">2000元</td>
-                        </tr>
-                        <tr>
-                            <td>单项目开发（不含论文）</td>
-                            <td class="price">1800元</td>
+                            <td>计算机毕设成品<br>（源码+数据库+论文+PPT+说明文档）</td>
+                            <td class="price">300元</td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="features">
-                    <span class="feature-tag feature-highlight">全套开发</span>
-                    <span class="feature-tag feature-highlight">论文指导</span>
-                    <span class="feature-tag feature-highlight">技术支持</span>
-                    <span class="feature-tag feature-highlight">售后服务</span>
+                    <span class="feature-tag feature-highlight">源码完整</span>
+                    <span class="feature-tag feature-highlight">数据库齐全</span>
+                    <span class="feature-tag feature-highlight">论文文档</span>
+                    <span class="feature-tag feature-highlight">PPT答辩</span>
+                    <span class="feature-tag feature-highlight">超值优惠</span>
                 </div>
+                <button class="view-products-btn" onclick="openProductModal()">查看成品列表</button>
             </div>
         </div>
 
@@ -774,7 +1125,7 @@
                             <td>Java</td>
                             <td>Jsp、SSM、SpringBoot2、SpringBoot3、SpringCloud、支持前后端分离高，前端建议用Vue</td>
                             <td>IDEA、VsCode...</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                             <td>
                                 所有套餐均包含开题、任务书套餐一后面可升级为套餐二<br>
                                 <strong style="color: #ff6b6b;">套餐一（推荐）：¥300</strong><br>
@@ -785,7 +1136,7 @@
                             <td>小程序</td>
                             <td>微信小程序原生/Uniapp</td>
                             <td>微信开发者工具、Hbuilder...</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                             <td rowspan="2">
                                 <strong>套餐二：¥800</strong><br>
                                 (初稿+无限次修改·支持两次更换检测价格+标格式修改·问题、代码问题翻译·ER图、流程图、测试说明、功能截图等)
@@ -795,32 +1146,32 @@
                             <td>公众号</td>
                             <td>Uniapp</td>
                             <td>微信开发者工具</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                         </tr>
                         <tr>
                             <td>Android</td>
                             <td>安卓原生/Uniapp</td>
                             <td>AndroidStudio、Hbuilder...</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                             <td rowspan="3"></td>
                         </tr>
                         <tr>
                             <td>Python</td>
                             <td>Django</td>
                             <td>Pycharm...</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                         </tr>
                         <tr>
                             <td>Node.js</td>
                             <td>express</td>
                             <td>VsCode、Hbuilder...</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                         </tr>
                         <tr>
                             <td>PHP</td>
                             <td>Php、ThinkPhp5</td>
                             <td>VsCode</td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                             <td rowspan="3" style="vertical-align: top; padding-top: 20px;">
                                 <strong>后续语言支持Python/Java</strong>
                             </td>
@@ -829,13 +1180,13 @@
                             <td>大数据</td>
                             <td>可视化大屏、Hadoop、Hive、Spark、Scapy(爬虫)</td>
                             <td></td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                         </tr>
                         <tr class="tech-special">
                             <td>机器学习</td>
                             <td>LSTM、决策树、线性回归、随机森林分布、随机森林回归</td>
                             <td></td>
-                            <td class="price">¥1500</td>
+                            <td class="price">¥1000</td>
                         </tr>
                     </tbody>
                 </table>
@@ -854,7 +1205,7 @@
             <!-- 最后想说的是 -->
             <div class="final-note">
                 <h4 style="color: #ff6b6b;">最后想说的是：</h4>
-                <p>我们开发团队不会给你虚报价格的价格，但是一定是合理的，谢谢大家的支持！</p>
+                <p>我们开发团队不会给你虚报价格的价格，并且价格一定是合理的，谢谢大家的支持！</p>
             </div>
         </div>
 
@@ -880,7 +1231,7 @@
                     <h3>微信联系</h3>
                     <div class="contact-info">
                         <span class="contact-label">微信号：</span>
-                        <span class="contact-value highlight">kdqr20220612</span>
+                        <span class="contact-value highlight">Mj-Coverd</span>
                     </div>
                     <div class="contact-features">
                         <span class="feature-tag">即时沟通</span>
@@ -912,5 +1263,312 @@
             </div>
         </div>
     </div>
+
+    <!-- 成品列表模态框 -->
+    <div id="productModal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>毕设成品列表</h2>
+                <button class="close-btn" onclick="closeProductModal()">×</button>
+            </div>
+
+            <!-- 分类选项卡 -->
+            <div class="category-tabs">
+                <div class="category-tab active" onclick="switchCategory('medical')">医疗健康类</div>
+                <div class="category-tab" onclick="switchCategory('life')">生活服务类</div>
+                <div class="category-tab" onclick="switchCategory('education')">教育培训类</div>
+                <div class="category-tab" onclick="switchCategory('ecommerce')">电商购物类</div>
+                <div class="category-tab" onclick="switchCategory('social')">社交娱乐类</div>
+                <div class="category-tab" onclick="switchCategory('management')">管理系统类</div>
+            </div>
+
+            <!-- 医疗健康类 -->
+            <div id="medical" class="project-list active">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>SpringBoot的中山社区医疗综合服务</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>python医院预约挂号</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot-乡村医疗上门服务预约平台微信小程序</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot-健康饮食小程序</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot中小型医院网站</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot医院门诊智能预约平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>健康饮食APP</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>养老院老人健康监护平台设计+vue</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>基于Vue的老年医疗服务平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>基于微信小程序的医院综合服务平台的设计与实现ssm</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>大健康综合咨询问诊平台+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>智慧医疗服务平台08727</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>校园心理健康网站的设计与实现+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>运动健康小程序SpringBoot</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 生活服务类 -->
+            <div id="life" class="project-list">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>Java家政预约平台的设计与实现</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>Java的家政服务平台的设计与实现</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>SpringBoot的旅游网站的设计与实现</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>java web 的OO村旅游网站的设计</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>java旅游攻略平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>nodejs旅游推荐网站</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot-旅游小程序设计</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot体育馆使用预约平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot健身房预约平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot在线居惠交互预约微信小程序</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot基于hive的安顺旅游景点数据分析的设计与实现</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot旅游网站</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot桂林旅游景点导游平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>springboot的小型诊疗预约平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>ssm基于html5的济南旅游网站+vue</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>ssm家政服务网站设计+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>ssm文化遗产的保护与旅游开发+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>ssm旅游攻略网站设计+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>ssm旅游网站的设计与实现+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>ssm旅游网页开发与设计+jsp</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>健身房私教预约微信小程序+ssm</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>儿童预防接种预约微信小程序+springboot</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>同城家政服务+ssm</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>在线疫苗预约小程序+springboot</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>在线租房和招聘平台api</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>基于JavaWeb的毕业季旅游一站式定制服务平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>基于SSM的旅游论坛设计与实现+vue</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>基于springboot的七彩云南文化旅游网站的设计与实现pf</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 教育培训类 -->
+            <div id="education" class="project-list">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>在线教育平台系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>学生成绩管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>在线考试系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>图书馆管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>课程管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>教务管理系统</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 电商购物类 -->
+            <div id="ecommerce" class="project-list">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>在线商城系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>农产品销售平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>二手交易平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>生鲜电商平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>美妆电商小程序</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>服装商城系统</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社交娱乐类 -->
+            <div id="social" class="project-list">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>在线聊天系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>社交论坛平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>音乐播放器</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>视频分享平台</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>博客系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>短视频平台</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 管理系统类 -->
+            <div id="management" class="project-list">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <h4>人事管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>仓库管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>酒店管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>停车场管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>宿舍管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>考勤管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>物业管理系统</h4>
+                    </div>
+                    <div class="project-item">
+                        <h4>餐厅点餐系统</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript代码 -->
+    <script>
+        // 打开模态框
+        function openProductModal() {
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
+
+        // 关闭模态框
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // 恢复背景滚动
+        }
+
+        // 切换分类
+        function switchCategory(categoryId) {
+            // 移除所有选项卡的active类
+            const tabs = document.querySelectorAll('.category-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 添加active类到当前选项卡
+            event.target.classList.add('active');
+            
+            // 隐藏所有项目列表
+            const lists = document.querySelectorAll('.project-list');
+            lists.forEach(list => list.classList.remove('active'));
+            
+            // 显示当前分类的项目列表
+            document.getElementById(categoryId).classList.add('active');
+        }
+
+        // 点击模态框外部关闭
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target === modal) {
+                closeProductModal();
+            }
+        });
+
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeProductModal();
+            }
+        });
+    </script>
 </body>
 </html>
